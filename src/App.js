@@ -6,7 +6,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        YOUR STATS HERE
         <DisplayStats/>
       </div>
     );
