@@ -35,7 +35,9 @@ class IndividualStats extends Component {
     this.props.handleDelete(id)
   }
 
-  
+  handleUpdate = (player) => {
+    this.props.handleUpdate(player)
+  }
 
   render() {
 
@@ -60,7 +62,12 @@ class IndividualStats extends Component {
     //Returns a table of players
 
     let showStats = whoToShow.map(player => {
-      return <Individual handleDelete={this.handleDelete} id={player.id} stats={player} key={player.name}/>
+      return <Individual 
+      handleDelete={this.handleDelete} 
+      id={player.id} 
+      stats={player} 
+      key={player.name}
+      handleUpdate={this.handleUpdate}/>
     })
 
     return (

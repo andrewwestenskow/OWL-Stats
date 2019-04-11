@@ -34,7 +34,6 @@ class DisplayStats extends Component {
   //Handles request to add new player
 
   addNew = (player) => {
-    console.log(player)
     axios.post('/api/individualstats', player).then(res =>{
       this.setState({
         individualStats: res.data
@@ -56,12 +55,27 @@ class DisplayStats extends Component {
     })
   }
 
+  // Handles put request 
+
+  handleUpdate = (player) => {
+    let {id} = player
+    console.log(id)
+    axios.put(`/api/individualstats/${id}`, player).then(res =>{
+      this.setState({
+        individualStats: res.data
+      })
+    }).catch(err =>{
+      console.log(`Error: ${err}`)
+    })
+  }
+
   render(){
     return(
       <div>
         <IndividualStats handleDelete={this.handleDelete}
         addNew={this.addNew} 
-        stats={this.state.individualStats}/>
+        stats={this.state.individualStats}
+        handleUpdate={this.handleUpdate}/>
         <ProStats stats={this.state.proStats}/>
       </div>
     )
