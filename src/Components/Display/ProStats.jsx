@@ -11,11 +11,11 @@ class ProStats extends Component {
       return <tbody key={player.name}>
 
         <tr>
-          <td>{player.name}</td>
-          <td>{(player.eliminations_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-          <td>{(player.hero_damage_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-          <td>{(player.healing_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-          <td>{(player.deaths_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
+          <td className='StatsCell'>{player.name}</td>
+          <td className='StatsCell'>{(player.eliminations_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
+          <td className='StatsCell'>{(player.hero_damage_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
+          <td className='StatsCell'>{(player.healing_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
+          <td className='StatsCell'>{(player.deaths_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
         </tr>
       </tbody>
     })
@@ -27,11 +27,11 @@ class ProStats extends Component {
           <table>
             <thead>
             <tr>
-              <td>Name</td>
-              <td>Eliminations per 10m</td>
-              <td>Hero Damage per 10m</td>
-              <td>Healing per 10m</td>
-              <td>Deaths per 10m</td>
+              <td className='HeaderCell'>Name</td>
+              <td className='HeaderCell'>Eliminations per 10m</td>
+              <td className='HeaderCell'>Hero Damage per 10m</td>
+              <td className='HeaderCell'>Healing per 10m</td>
+              <td className='HeaderCell'>Deaths per 10m</td>
             </tr>
             </thead>
             {showStats}

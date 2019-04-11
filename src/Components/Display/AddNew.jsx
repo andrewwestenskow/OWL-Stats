@@ -5,10 +5,11 @@ class AddNew extends Component {
 
   state = {
     name: '',
-    eliminations_avg_per_10m: 0,
-    hero_damage_avg_per_10m: 0,
-    healing_avg_per_10m: 0,
-    deaths_avg_per_10m: 0
+    eliminations_avg_per_10m: '',
+    hero_damage_avg_per_10m: '',
+    healing_avg_per_10m: '',
+    deaths_avg_per_10m: '',
+    rank: ''
   }
 
   handleChange = (e) => {
@@ -26,43 +27,56 @@ class AddNew extends Component {
       eliminations_avg_per_10m: '',
       hero_damage_avg_per_10m: '',
       healing_avg_per_10m: '',
-      deaths_avg_per_10m: ''
+      deaths_avg_per_10m: '',
+      rank: ''
     })
   }
 
 
   render() {
     return (
-      <div>
+      <div className='NewForm'>
         <input value={this.state.name} 
         onChange={this.handleChange} 
         type="text" 
         name="name" 
-        placeholder='Name'/>
+        placeholder='Name'
+        className='NewStatInput'/>
+
+        <input value={this.state.rank}
+        onChange={this.handleChange} 
+        type="number" 
+        name="rank" 
+        placeholder='Rank'
+        className='NewStatInput' />
 
         <input value={this.state.eliminations_avg_per_10m}
         onChange={this.handleChange} 
         type="number" 
         name="eliminations_avg_per_10m" 
-        placeholder='Elims/10 min'/>
+        placeholder='Elims/10 min'
+        className='NewStatInput'/>
 
         <input value={this.state.hero_damage_avg_per_10m}
         onChange={this.handleChange} 
         type="number" 
         name="hero_damage_avg_per_10m" 
-        placeholder='Hero Damage/10min'/>
+        placeholder='Hero Damage/10min'
+        className='NewStatInput'/>
 
         <input value={this.state.healing_avg_per_10m}
         onChange={this.handleChange} 
         type="number" 
         name="healing_avg_per_10m" 
-        placeholder='Healing/10 min'/>
+        placeholder='Healing/10 min'
+        className='NewStatInput'/>
         
         <input value={this.state.deaths_avg_per_10m}
         onChange={this.handleChange} 
         type="number" 
         name="deaths_avg_per_10m" 
-        placeholder='Deaths/10 min'/>
+        placeholder='Deaths/10 min'
+        className='NewStatInput'/>
 
         <button onClick={this.handleSubmit}>Submit</button>
       </div>

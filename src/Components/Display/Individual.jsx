@@ -11,7 +11,8 @@ class Individual extends Component {
     hero_damage_avg_per_10m: this.props.stats.hero_damage_avg_per_10m,
     healing_avg_per_10m: this.props.stats.healing_avg_per_10m,
     deaths_avg_per_10m: this.props.stats.deaths_avg_per_10m,
-    id: this.props.id
+    id: this.props.id,
+    rank: this.props.stats.rank
   }
 
   editing = () => {
@@ -48,64 +49,82 @@ class Individual extends Component {
 
   render(){
 
-    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m} = this.props.stats
+    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m, rank} = this.props.stats
 
     return(
 
       
       
-      <tbody key={name}>
+      <tbody key={name} className='StatsBody'>
 
       {/* If edit is clicked, the text will be replaced with an input box */}
-      <tr>
-        <td>{this.state.edit ? 
+      <tr className='StatsRow'>
+        <td className='StatsCell'>{this.state.edit ? 
         <input type="text" 
         onChange={this.handleChange}
         defaultValue={name} 
-        name='name' 
+        name='name'
+        className='StatInput' 
         /> : name}</td>
 
-        <td>{this.state.edit ? 
+        <td className='StatsCell'>{this.state.edit ? 
+        <input type="number" 
+        onChange={this.handleChange}
+        defaultValue={rank} 
+        name='rank'
+        className='RankInput' 
+        /> : rank}</td>
+
+        <td className='StatsCell'>{this.state.edit ? 
         <input type="number" 
         defaultValue={eliminations_avg_per_10m}
         name='eliminations_avg_per_10m'
-        onChange={this.handleChange}/> 
+        onChange={this.handleChange}
+        className='StatInput'/> 
         : (eliminations_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
 
-        <td>{this.state.edit ? 
+        <td className='StatsCell'>{this.state.edit ? 
         <input type="number" 
         defaultValue ={hero_damage_avg_per_10m}
         name='hero_damage_avg_per_10m'
-        onChange={this.handleChange}/> 
+        onChange={this.handleChange}
+        className='StatInput'/> 
         : (hero_damage_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
 
-        <td>{this.state.edit ? 
+        <td className='StatsCell'>{this.state.edit ? 
         <input type="number" 
         defaultValue={healing_avg_per_10m}
         name='healing_avg_per_10m'
-        onChange={this.handleChange}/> 
+        onChange={this.handleChange}
+        className='StatInput'/> 
         : (healing_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
 
-        <td>{this.state.edit ? 
+        <td className='StatsCell'>{this.state.edit ? 
         <input type="number" 
         defaultValue={deaths_avg_per_10m}
         name='deaths_avg_per_10m'
-        onChange={this.handleChange}/> 
+        onChange={this.handleChange}
+        className='StatInput'/> 
         : (deaths_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}
         </td>
 
-        {this.state.edit ? <td><button onClick={this.handleUpdate}>Submit</button></td>  : null}
+        <td className='ButtonHold'><button 
+        style={{marginLeft: 5}} 
+        className='StatButton' 
+        onClick={this.editing}>{this.state.edit ? `Cancel` : `Edit`}</button></td>
 
-        <td><button onClick={this.editing}>{this.state.edit ? `Cancel` : `Edit`}</button></td>
+        {this.state.edit ? <td className='ButtonHold'><button className='StatButton'onClick={this.handleUpdate}>Submit</button></td>  : null}
 
-        <td><button onClick={this.makeSure}>Delete</button></td>
+
+        <td className='ButtonHold'><button className='StatButton' onClick={this.makeSure}>Delete</button></td>
       </tr>
       
       {this.state.makeSure ? <tr className="MakeSure">
       <td>
       <h2>Delete {this.state.name}?</h2>
       <button onClick={this.handleDelete}>Confirm</button>
-      <button onClick={this.makeSure}>Cancel</button></td>
+      <button onClick={this.makeSure}>Cancel</button>
+      </td>
       </tr>
       : null}
     </tbody>

@@ -1,12 +1,14 @@
 let stats = [{
   name:'StormCloudWilly',
   eliminations_avg_per_10m: 19.7,
+  rank: 2947,
   deaths_avg_per_10m: 9.5,
   hero_damage_avg_per_10m: 11552,
   healing_avg_per_10m: 40,
   id: 1},
 
   {name:'StormCloudBilly',
+  rank: 2750,
   eliminations_avg_per_10m: 23.9,
   deaths_avg_per_10m: 12.3,
   hero_damage_avg_per_10m: 9206,
@@ -15,6 +17,7 @@ let stats = [{
 
   {name:'StormCloudKilly',
   eliminations_avg_per_10m: 25.8,
+  rank: 2379,
   deaths_avg_per_10m: 13.6,
   hero_damage_avg_per_10m: 10558,
   healing_avg_per_10m: 699,
@@ -30,9 +33,10 @@ module.exports = {
   },
 
   post: (req,res) => {
-    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m} = req.body
+    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m, rank} = req.body
     let newPlayer = {
       name: name,
+      rank: rank,
       eliminations_avg_per_10m: +eliminations_avg_per_10m,
       hero_damage_avg_per_10m: +hero_damage_avg_per_10m,
       healing_avg_per_10m: +healing_avg_per_10m,
@@ -46,13 +50,14 @@ module.exports = {
 
   put: (req, res) => {
     let {id} = req.params
-    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m} = req.body
+    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m, rank} = req.body
     let updatedPlayer = {
       name: name,
       eliminations_avg_per_10m: +eliminations_avg_per_10m,
       hero_damage_avg_per_10m: +hero_damage_avg_per_10m,
       healing_avg_per_10m: +healing_avg_per_10m,
       deaths_avg_per_10m: +deaths_avg_per_10m,
+      rank: rank,
       id: id
     }
 

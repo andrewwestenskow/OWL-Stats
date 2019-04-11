@@ -29,6 +29,9 @@ class IndividualStats extends Component {
 
   addNew = (player) => {
     this.props.addNew(player)
+    this.setState({
+      addNew: false
+    })
   }
 
   handleDelete = (id) => {
@@ -50,32 +53,32 @@ class IndividualStats extends Component {
     //Shows only the selected player
 
     let whoToShow = this.props.stats.filter(player => {
-      if (!this.state.player){
+      if (!this.state.player) {
         return player
       } else {
         return this.state.player === player.name
       }
-      
-      
+
+
     })
 
     //Returns a table of players
 
     let showStats = whoToShow.map(player => {
-      return <Individual 
-      handleDelete={this.handleDelete} 
-      id={player.id} 
-      stats={player} 
-      key={player.name}
-      handleUpdate={this.handleUpdate}/>
+      return <Individual
+        handleDelete={this.handleDelete}
+        id={player.id}
+        stats={player}
+        key={player.name}
+        handleUpdate={this.handleUpdate} />
     })
 
     return (
-      <div>
+      <div className='PlayerStats'>
         <h1>Player Stats</h1>
 
         {/* Used to select who is shown  */}
-        <select name="" id="" onChange={e => this.whoToDisplay(e.target.value)}>
+        <select className='PlayerSelect' name="" id="" onChange={e => this.whoToDisplay(e.target.value)}>
           <option value="">All Players</option>
           {getOptions}
         </select>
@@ -83,18 +86,19 @@ class IndividualStats extends Component {
 
         {/* Determines if the new form is shown  */}
 
-        {this.state.addNew ? <AddNew addNew={this.addNew}/> : null}
+        {this.state.addNew ? <AddNew addNew={this.addNew} /> : null}
 
         <div className="Stats">
-        <table>
+          <table>
             <thead>
-            <tr>
-              <td>Name</td>
-              <td>Eliminations per 10m</td>
-              <td>Hero Damage per 10m</td>
-              <td>Healing per 10m</td>
-              <td>Deaths per 10m</td>
-            </tr>
+              <tr>
+                <td className='HeaderCell'>Name</td>
+                <td className='RankCell'>Rank</td>
+                <td className='HeaderCell'>Eliminations per 10m</td>
+                <td className='HeaderCell'>Hero Damage per 10m</td>
+                <td className='HeaderCell'>Healing per 10m</td>
+                <td className='HeaderCell'>Deaths per 10m</td>
+              </tr>
             </thead>
             {showStats}
           </table>
