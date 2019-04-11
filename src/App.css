@@ -8,13 +8,45 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'Roboto Condensed', 'sans-serif';  
-  background-image: url('http://www.sharebyme.com/wp-content/uploads/2016/08/pattern_background1.png')
+  background-image: url('http://www.sharebyme.com/wp-content/uploads/2016/08/pattern_background1.png');
+  margin: 0;
+  padding: 0;
 }
 
 .MainHold{
   display: flex;
   justify-content: flex-start;
   /* border: 1px solid green; */
+}
+
+/* HEADER */
+
+.Header{
+  width: 99vw;
+  height: 10vh;
+  background-color: white;
+  display:flex;
+  justify-content: space-between;
+}
+
+.WelcomeText{
+  margin: 0;
+  margin-left: 50px;
+  padding-top: 25px;
+}
+
+.CompareSelects{
+  padding-top: 25px;
+  margin-right: 200px;
+}
+
+.Compare{
+  font-size: 24px;
+  margin-right: 50px;
+}
+
+.CompareButton{
+  font-size: 24px;
 }
 
 /* GENERAL TABLE */
@@ -60,6 +92,12 @@ td{
 .RankCell{
   background-color: white;
 }
+
+.DeleteHead{
+  border: none;
+}
+
+
 
 
 .StatsCell{
