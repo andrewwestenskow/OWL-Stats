@@ -9,9 +9,25 @@ class Compare extends Component {
     player2: {}
   }
 
-  componentDidMount() {
+  componentDidMount(){
+
     let {player1, player2} = this.props
 
+    axios.get(`/api/prostats?name=${player2}`).then(res => {
+      this.setState({
+        player2: res.data
+      })
+    }).catch(err =>{
+      console.log(`Error: ${err}`)
+    })
+
+    axios.get(`/api/individualstats?name=${player1}`).then(res => {
+      this.setState({
+        player1: res.data
+      })
+    }).catch(err =>{
+      console.log(`Error: ${err}`)
+    })
   }
 
   render() {
