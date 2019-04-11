@@ -12,6 +12,8 @@ class DisplayStats extends Component {
   }
 
   componentDidMount(){
+
+    //Gets both pro and individual stats at component mount
     axios.get('/api/prostats').then(res => {
       this.setState({
         proStats: res.data
@@ -29,10 +31,37 @@ class DisplayStats extends Component {
     })
   }
 
+  //Handles request to add new player
+
+  addNew = (player) => {
+    console.log(player)
+    axios.post('/api/individualstats', player).then(res =>{
+      this.setState({
+        individualStats: res.data
+      })
+    }).catch(err =>{
+      console.log(`Error: ${err}`)
+    })
+  }
+
+  //Handles request to delete player
+
+  handleDelete = (id) => {
+    axios.delete(`/api/individualstats/${id}`).then(res =>{
+      this.setState({
+        individualStats: res.data
+      })
+    }).catch(err =>{
+      console.log(`Error: ${err}`)
+    })
+  }
+
   render(){
     return(
       <div>
-        <IndividualStats stats={this.state.individualStats}/>
+        <IndividualStats handleDelete={this.handleDelete}
+        addNew={this.addNew} 
+        stats={this.state.individualStats}/>
         <ProStats stats={this.state.proStats}/>
       </div>
     )

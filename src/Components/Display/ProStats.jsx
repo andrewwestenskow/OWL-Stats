@@ -6,7 +6,7 @@ class ProStats extends Component {
 
   render() {
 
-
+    //Maps over all pro players and places them in a table
     let showStats = this.props.stats.map(player => {
       return <tbody key={player.name}>
 

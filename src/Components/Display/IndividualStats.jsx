@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import AddNew from './AddNew'
+import Individual from './Individual'
 
 class IndividualStats extends Component {
 
   state = {
     player: '',
-    edit: false
+    edit: false,
+    addNew: false
   }
 
   whoToDisplay = (player) => {
@@ -20,11 +22,29 @@ class IndividualStats extends Component {
     })
   }
 
+  addNewForm = () => {
+    this.setState({
+      addNew: !this.state.addNew
+    })
+  }
+
+  addNew = (player) => {
+    this.props.addNew(player)
+  }
+
+  handleDelete = (id) => {
+    this.props.handleDelete(id)
+  }
+
   render() {
+
+    //Fetches all players on record
 
     let getOptions = this.props.stats.map(player => {
       return <option value={player.name} key={player.id}>{player.name}</option>
     })
+
+    //Shows only the selected player
 
     let whoToShow = this.props.stats.filter(player => {
       if (!this.state.player){
@@ -36,29 +56,26 @@ class IndividualStats extends Component {
       
     })
 
+    //Returns a table of players
+
     let showStats = whoToShow.map(player => {
-      return<tbody key={player.name}>
-
-      <tr>
-        <td>{player.name}</td>
-        <td>{(player.eliminations_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-        <td>{(player.hero_damage_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-        <td>{(player.healing_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-        <td>{(player.deaths_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
-        <td><button onClick={this.editing}>Edit</button></td>
-      </tr>
-    </tbody>
-
+      return <Individual handleDelete={this.handleDelete} id={player.id} stats={player} key={player.name}/>
     })
 
     return (
       <div>
         <h1>Player Stats</h1>
+
+        {/* Used to select who is shown  */}
         <select name="" id="" onChange={e => this.whoToDisplay(e.target.value)}>
           <option value="">All Players</option>
           {getOptions}
         </select>
-        <button>Add New Player</button>
+        <button onClick={this.addNewForm}>Add New Player</button>
+
+        {/* Determines if the new form is shown  */}
+
+        {this.state.addNew ? <AddNew addNew={this.addNew}/> : null}
 
         <div className="Stats">
         <table>

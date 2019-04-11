@@ -14,7 +14,14 @@ module.exports = {
   },
 
   post: (req,res) => {
-    let newPlayer = req.body
+    let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m} = req.body
+    let newPlayer = {
+      name: name,
+      eliminations_avg_per_10m: +eliminations_avg_per_10m,
+      hero_damage_avg_per_10m: +hero_damage_avg_per_10m,
+      healing_avg_per_10m: +healing_avg_per_10m,
+      deaths_avg_per_10m: +deaths_avg_per_10m
+    }
     id++
     newPlayer.id = id
     stats.push(newPlayer)
