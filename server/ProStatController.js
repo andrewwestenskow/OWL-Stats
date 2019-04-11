@@ -2,6 +2,15 @@ let stats = [{"playerId":5197,"teamId":7697,"role":"offense","name":"Ado","team"
 
 module.exports = {
   get: (req, res) => {
-    res.send(stats)
+    let result = stats
+    if(req.query.name) {
+      result = stats.filter(player => {
+        return req.query.name === player.name
+      })
+    }
+    if(result.length === 0) {
+      result = stats
+    }
+    res.send(result)
   }
 }

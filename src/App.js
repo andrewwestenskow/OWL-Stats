@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DisplayStats from './Components/Display/DisplayStats'
 import Header from './Components/Compare/Header'
+import Compare from './Components/Compare/Compare'
 
 class App extends Component {
 
@@ -20,7 +21,7 @@ class App extends Component {
 
   handleCompare = () => {
     this.setState({
-      showCompare: true
+      showCompare: !this.state.showCompare
     })
   }
 
@@ -28,11 +29,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header handleChange={this.handleChange}/>
+        <Header handleChange={this.handleChange}
+        handleCompare={this.handleCompare}/>
 
 
         <div className='MainHold'>
-          <DisplayStats />
+          {this.state.showCompare ? <Compare player1={this.state.player1} player2={this.state.player2} showCompare={this.handleCompare}/> : <DisplayStats />}
         </div>
       </div>
     );

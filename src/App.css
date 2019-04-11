@@ -11,6 +11,7 @@
   background-image: url('http://www.sharebyme.com/wp-content/uploads/2016/08/pattern_background1.png');
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 .MainHold{
@@ -47,6 +48,16 @@
 
 .CompareButton{
   font-size: 24px;
+}
+
+/* COMPARE */
+
+.CompareWindow{
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
 }
 
 /* GENERAL TABLE */

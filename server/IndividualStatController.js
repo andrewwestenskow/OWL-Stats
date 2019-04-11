@@ -28,8 +28,15 @@ let stats = [{
 let id = (stats.length)+1
 
 module.exports = {
+  
   get: (req, res) => {
-    res.send(stats)
+    let result = stats
+    if(req.query.name) {
+      result = stats.filter(player => {
+        return req.query.name === player.name
+      })
+    }
+    res.send(result)
   },
 
   post: (req,res) => {

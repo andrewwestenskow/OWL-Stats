@@ -32,6 +32,10 @@ class Header extends Component {
     this.props.handleChange(e)
   }
 
+  handleCompare = () => {
+    this.props.handleCompare()
+  }
+
 
   render() {
 
@@ -56,7 +60,7 @@ class Header extends Component {
               <option value="">Player 2</option>
               {proNames}
             </select>
-            <button className='CompareButton'>Compare!</button>
+            <button onClick={this.handleCompare} className='CompareButton'>Compare!</button>
           </div>
 
         </header>
