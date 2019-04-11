@@ -6,7 +6,6 @@ class IndividualStats extends Component {
 
   state = {
     player: '',
-    edit: false,
     addNew: false
   }
 
@@ -35,6 +34,8 @@ class IndividualStats extends Component {
   handleDelete = (id) => {
     this.props.handleDelete(id)
   }
+
+  
 
   render() {
 
