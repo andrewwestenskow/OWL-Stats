@@ -22,7 +22,14 @@ let stats = [{
   hero_damage_avg_per_10m: 10558,
   healing_avg_per_10m: 699,
   id: 3},
-  
+
+  {name:'Figs n Jigs',
+  eliminations_avg_per_10m: 21.7,
+  rank: 2774,
+  deaths_avg_per_10m: 9.8,
+  hero_damage_avg_per_10m: 6845,
+  healing_avg_per_10m: 1971,
+  id: 4},
 ]
 
 let id = (stats.length)+1

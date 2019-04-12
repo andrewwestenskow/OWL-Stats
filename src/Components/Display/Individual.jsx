@@ -1,4 +1,11 @@
 import React, {Component} from 'react'
+import Bronze from './RankIcons/Bronze.png'
+import Silver from './RankIcons/Silver.png'
+import Gold from './RankIcons/Gold.png'
+import Plat from './RankIcons/Plat.png'
+import Diamond from './RankIcons/Diamond.png'
+import Masters from './RankIcons/Master.png'
+import GM from './RankIcons/GM.png'
 
 
 class Individual extends Component {
@@ -51,13 +58,33 @@ class Individual extends Component {
 
     let {name, eliminations_avg_per_10m, hero_damage_avg_per_10m, healing_avg_per_10m, deaths_avg_per_10m, rank} = this.props.stats
 
+    let rankImage
+
+    // Determines which rank image to show
+
+    if (rank < 1500) {
+      rankImage = Bronze
+    } else if (rank >= 1500 && rank < 2000){
+      rankImage = Silver
+    } else if (rank >=2000 && rank <2500){
+      rankImage = Gold
+    } else if (rank >= 2500 && rank <3000){
+      rankImage = Plat
+    } else if (rank >=3000 && rank <3500){
+      rankImage = Diamond
+    } else if (rank >=3500 && rank <4000) {
+      rankImage = Masters
+    } else if (rank >=4000){
+      rankImage = GM
+    }
+
     return(
 
       
       
       <tbody key={name} className='StatsBody'>
 
-      {/* If edit is clicked, the text will be replaced with an input box */}
+      {/* If edit is clicked, the text will be replaced with an input box.  The following inputs accept the new stats */}
       <tr className='StatsRow'>
         <td className='StatsCell'>{this.state.edit ? 
         <input type="text" 
@@ -73,7 +100,10 @@ class Individual extends Component {
         defaultValue={rank} 
         name='rank'
         className='RankInput' 
-        /> : rank}</td>
+        /> : <div className='Rank'>
+          <img src={rankImage} className='RankIcon' alt='Icon'/>
+          {rank}
+        </div>}</td>
 
         <td className='StatsCell'>{this.state.edit ? 
         <input type="number" 

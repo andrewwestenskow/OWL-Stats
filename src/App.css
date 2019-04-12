@@ -190,8 +190,18 @@ td{
   font-weight: 600;
 }
 
+.Rank{
+  display:flex;
+  align-items: center;
+}
+
 .DeleteHead{
   border: none;
+}
+
+.RankIcon{
+  width: 30px;
+  height: 30px;
 }
 
 
@@ -199,7 +209,6 @@ td{
 
 .StatsCell{
   border: 1px solid black;
-  width: 10vw;
   background-color: beige
 }
 
