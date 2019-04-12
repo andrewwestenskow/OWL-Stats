@@ -14,9 +14,9 @@ class DisplayStats extends Component {
   componentDidMount(){
 
     //Gets both pro and individual stats at component mount
-    axios.get('/api/prostats').then(res => {
+    axios.get('https://api.overwatchleague.com/stats/players').then(res => {
       this.setState({
-        proStats: res.data
+        proStats: res.data.data
       })
     }).catch(err =>{
       console.log(`Error: ${err}`)

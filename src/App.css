@@ -5,7 +5,7 @@
   /* color: white; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   font-family: 'Roboto Condensed', 'sans-serif';  
   background-image: url('http://www.sharebyme.com/wp-content/uploads/2016/08/pattern_background1.png');
