@@ -11,6 +11,8 @@ class Compare extends Component {
     player2Stats: {}
   }
 
+  // Fetches detailed player stats 
+
   componentDidMount() {
 
     let { player1, player2 } = this.props
@@ -40,6 +42,8 @@ class Compare extends Component {
     return (
       <div className='CompareWindow'>
         <h1 className='CompareHeader'>HOW DO YOU STACK UP?</h1>
+
+        {/* Player 1 stats */}
         <div className="CompareStats">
           <div className="Player1">
             <table className='Player1Table'>
@@ -67,7 +71,12 @@ class Compare extends Component {
               </tbody>
             </table>
           </div>
-          <ShowCompare player1={player1} player2={this.state.player2Stats} />
+
+          {/* Shows stat comparison */}
+          <ShowCompare player1={player1} 
+          player2={this.state.player2Stats} />
+
+          {/* Shows Player 2 stats */}
           <div className="Player2">
             <table className='Player2Table'>
               <tbody>
@@ -95,6 +104,8 @@ class Compare extends Component {
             </table>
           </div>
         </div>
+
+        {/* Back button */}
         <div className="BackButton">
           <button onClick={() => this.props.showCompare()}>Go Back</button>
         </div>

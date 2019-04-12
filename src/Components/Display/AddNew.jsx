@@ -35,6 +35,9 @@ class AddNew extends Component {
 
   render() {
     return (
+
+      // Fields to input new player data
+      
       <div className='NewForm'>
         <input value={this.state.name} 
         onChange={this.handleChange} 

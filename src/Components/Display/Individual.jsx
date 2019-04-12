@@ -120,10 +120,16 @@ class Individual extends Component {
       </tr>
       
       {this.state.makeSure ? <tr className="MakeSure">
+
+      {/* Delete confirmation window     */}
+
       <td>
       <h2>Delete {this.state.name}?</h2>
-      <button className='RedButton' onClick={this.handleDelete}>Confirm</button>
-      <button className='SmallGreenButton' onClick={this.makeSure}>Cancel</button>
+      <button className='RedButton' 
+      onClick={this.handleDelete}>Confirm</button>
+      
+      <button className='SmallGreenButton' 
+      onClick={this.makeSure}>Cancel</button>
       </td>
       </tr>
       : null}

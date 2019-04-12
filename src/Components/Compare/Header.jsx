@@ -15,6 +15,8 @@ class Header extends Component {
 
   render() {
 
+    // Renders drop-down options based on props
+
     let proNames = this.props.proStats.map(player =>{
       return <option key={player.name} value={player.name}>{player.name}</option>
     })
@@ -27,16 +29,20 @@ class Header extends Component {
       <div>
         <header className='Header'>
           <h1 className='WelcomeText'>Overwatch Stats Comparison</h1>
+
+
           <div className='CompareSelects'>
+
             <select onChange={this.handleChange} name="player1" id="" className='Compare'>
-              {/* <option value="">Player 1</option> */}
               {playerNames}
             </select>
+
             <select onChange={this.handleChange} name="player2" id="" className='Compare'>
-              {/* <option>Player 2</option> */}
               {proNames}
             </select>
+
             <button disabled={!this.props.player2} onClick={this.handleCompare} className='GreenButton'>Compare!</button>
+            
           </div>
 
         </header>

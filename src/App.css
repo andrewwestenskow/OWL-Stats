@@ -182,10 +182,12 @@ td{
 .HeaderCell{
   min-width: 154px;
   background-color: white;
+  font-weight: 600;
 }
 
 .RankCell{
   background-color: white;
+  font-weight: 600;
 }
 
 .DeleteHead{

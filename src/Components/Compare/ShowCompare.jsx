@@ -13,6 +13,8 @@ class ShowCompare extends Component {
     let damageText
     let healingText
     let deathText
+
+    // Following if statements determine text color
     
     if(Number(player1.eliminations_avg_per_10m) > Number(player2.eliminations_avg_per_10m)){
       elimText = 'GreenText'

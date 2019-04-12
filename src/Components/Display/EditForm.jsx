@@ -33,6 +33,9 @@ class EditForm extends Component {
   render() {
     return (
       <div>
+
+      {/* Inputs for updated player data  */}
+
         <input value={this.state.name} 
         onChange={this.handleChange} 
         type="text" 

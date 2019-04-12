@@ -13,6 +13,8 @@ class DisplayStats extends Component {
         addNew={this.props.addNew} 
         stats={this.props.individualStats}
         handleUpdate={this.props.handleUpdate}/>
+
+        
         <ProStats stats={this.props.proStats}/>
       </div>
     )

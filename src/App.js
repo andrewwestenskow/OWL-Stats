@@ -114,15 +114,21 @@ class App extends Component {
 
     return (
       <div className="App">
+
+      {/* Renders the header */}
         <Header handleChange={this.handleChange}
         handleCompare={this.handleCompare}
         individualStats={this.state.individualStats}
         proStats={this.state.proStats}
         player2={this.state.player2}/>
 
-
+      {/* Renders the main body of the site, either player stat tables or the compare window */}
         <div className='MainHold'>
-          {this.state.showCompare ? <Compare player1={this.state.player1} player2={player2[0].id} showCompare={this.handleCompare}/> : 
+          {this.state.showCompare ? 
+          <Compare player1={this.state.player1} 
+          player2={player2[0].id} 
+          showCompare={this.handleCompare}/> : 
+          
           <DisplayStats 
           handleDelete={this.handleDelete}
           addNew={this.addNew}
