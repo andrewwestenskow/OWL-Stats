@@ -75,14 +75,14 @@ class IndividualStats extends Component {
 
     return (
       <div className='PlayerStats'>
-        <h1>Player Stats</h1>
+        <h1 className='Heading'>Player Stats</h1>
 
         {/* Used to select who is shown  */}
         <select className='PlayerSelect' name="" id="" onChange={e => this.whoToDisplay(e.target.value)}>
           <option value="">All Players</option>
           {getOptions}
         </select>
-        <button onClick={this.addNewForm}>Add New Player</button>
+        <button className='GreenButton' onClick={this.addNewForm}>Add New Player</button>
 
         {/* Determines if the new form is shown  */}
 

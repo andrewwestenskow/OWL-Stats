@@ -22,7 +22,7 @@ class ProStats extends Component {
 
     return (
       <div>
-        <h1>Pro Stats</h1>
+        <h1 className='Heading'>Pro Stats</h1>
         <div className="Stats">
           <table>
             <thead>

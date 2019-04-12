@@ -78,7 +78,7 @@ class AddNew extends Component {
         placeholder='Deaths/10 min'
         className='NewStatInput'/>
 
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button className='GreenButton' onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }

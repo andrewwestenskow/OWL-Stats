@@ -8,7 +8,7 @@ let stats = [{
   id: 1},
 
   {name:'StormCloudBilly',
-  rank: 2750,
+  rank: 2895,
   eliminations_avg_per_10m: 23.9,
   deaths_avg_per_10m: 12.3,
   hero_damage_avg_per_10m: 9206,

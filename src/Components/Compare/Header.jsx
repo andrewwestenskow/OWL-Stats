@@ -50,7 +50,7 @@ class Header extends Component {
     return (
       <div>
         <header className='Header'>
-          <h1 className='WelcomeText'>Overwatch Stats Compare</h1>
+          <h1 className='WelcomeText'>Overwatch Stats Comparison</h1>
           <div className='CompareSelects'>
             <select onChange={this.handleChange} name="player1" id="" className='Compare'>
               <option value="">Player 1</option>
@@ -60,7 +60,7 @@ class Header extends Component {
               <option value="">Player 2</option>
               {proNames}
             </select>
-            <button onClick={this.handleCompare} className='CompareButton'>Compare!</button>
+            <button onClick={this.handleCompare} className='GreenButton'>Compare!</button>
           </div>
 
         </header>
