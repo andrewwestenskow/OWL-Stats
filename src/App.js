@@ -29,7 +29,8 @@ class App extends Component {
       })
       this.setState({
         proStats: stats,
-        playerIds: playerIds
+        playerIds: playerIds,
+        player2: playerIds[0].name
       })
     })
     .catch(err => {
@@ -38,7 +39,8 @@ class App extends Component {
 
     axios.get('/api/individualstats').then(res => {
       this.setState({
-        individualStats: res.data
+        individualStats: res.data,
+        player1: res.data[0].name
       })
     }).catch(err =>{
       console.log(`Error: ${err}`)
@@ -65,7 +67,8 @@ class App extends Component {
   handleDelete = (id) => {
     axios.delete(`/api/individualstats/${id}`).then(res =>{
       this.setState({
-        individualStats: res.data
+        individualStats: res.data,
+        player1: res.data[0].name
       })
     }).catch(err =>{
       console.log(`Error: ${err}`)
