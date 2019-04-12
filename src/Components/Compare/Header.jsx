@@ -1,32 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios';
 
 class Header extends Component {
 
-  state={
-    individualStats: [],
-    proStats: [],
-  }
-
-  componentDidMount(){
-
-    //Gets both pro and individual stats at component mount
-    axios.get('/api/prostats').then(res => {
-      this.setState({
-        proStats: res.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-
-    axios.get('/api/individualstats').then(res => {
-      this.setState({
-        individualStats: res.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-  }
 
   handleChange = (e) => {
     this.props.handleChange(e)
@@ -39,11 +14,11 @@ class Header extends Component {
 
   render() {
 
-    let proNames = this.state.proStats.map(player =>{
+    let proNames = this.props.proStats.map(player =>{
       return <option key={player.name} value={player.name}>{player.name}</option>
     })
 
-    let playerNames = this.state.individualStats.map(player =>{
+    let playerNames = this.props.individualStats.map(player =>{
       return <option key={player.name} value={player.name}>{player.name}</option>
     })
 

@@ -1,82 +1,19 @@
 import React, {Component} from 'react'
-import axios from 'axios'
 import ProStats from './ProStats'
 import IndividualStats from './IndividualStats'
 
 
 class DisplayStats extends Component {
 
-  state = {
-    proStats: [],
-    individualStats: []
-  }
-
-  componentDidMount(){
-
-    //Gets both pro and individual stats at component mount
-    axios.get('https://api.overwatchleague.com/stats/players').then(res => {
-      this.setState({
-        proStats: res.data.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-
-    axios.get('/api/individualstats').then(res => {
-      this.setState({
-        individualStats: res.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-  }
-
-  //Handles request to add new player
-
-  addNew = (player) => {
-    axios.post('/api/individualstats', player).then(res =>{
-      this.setState({
-        individualStats: res.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-  }
-
-  //Handles request to delete player
-
-  handleDelete = (id) => {
-    axios.delete(`/api/individualstats/${id}`).then(res =>{
-      this.setState({
-        individualStats: res.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-  }
-
-  // Handles put request 
-
-  handleUpdate = (player) => {
-    let {id} = player
-    console.log(id)
-    axios.put(`/api/individualstats/${id}`, player).then(res =>{
-      this.setState({
-        individualStats: res.data
-      })
-    }).catch(err =>{
-      console.log(`Error: ${err}`)
-    })
-  }
 
   render(){
     return(
       <div>
-        <IndividualStats handleDelete={this.handleDelete}
-        addNew={this.addNew} 
-        stats={this.state.individualStats}
-        handleUpdate={this.handleUpdate}/>
-        <ProStats stats={this.state.proStats}/>
+        <IndividualStats handleDelete={this.props.handleDelete}
+        addNew={this.props.addNew} 
+        stats={this.props.individualStats}
+        handleUpdate={this.props.handleUpdate}/>
+        <ProStats stats={this.props.proStats}/>
       </div>
     )
   }
