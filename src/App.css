@@ -101,7 +101,7 @@
   left: 12.5%;
   margin-top: -50px;
   margin-left: -100px;
-  height: 40vh;
+  min-height: 40vh;
   width: 90vw;
   background-color: beige;
   display: flex;

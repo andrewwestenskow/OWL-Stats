@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 class Header extends Component {
 
 
+
   handleChange = (e) => {
     this.props.handleChange(e)
   }
@@ -28,14 +29,14 @@ class Header extends Component {
           <h1 className='WelcomeText'>Overwatch Stats Comparison</h1>
           <div className='CompareSelects'>
             <select onChange={this.handleChange} name="player1" id="" className='Compare'>
-              <option value="">Player 1</option>
+              {/* <option value="">Player 1</option> */}
               {playerNames}
             </select>
             <select onChange={this.handleChange} name="player2" id="" className='Compare'>
-              <option value="">Player 2</option>
+              {/* <option>Player 2</option> */}
               {proNames}
             </select>
-            <button onClick={this.handleCompare} className='GreenButton'>Compare!</button>
+            <button disabled={!this.props.player2} onClick={this.handleCompare} className='GreenButton'>Compare!</button>
           </div>
 
         </header>

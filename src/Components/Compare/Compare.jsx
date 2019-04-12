@@ -7,16 +7,18 @@ class Compare extends Component {
 
   state = {
     player1: {},
-    player2: {}
+    player2: {},
+    player2Stats: {}
   }
 
   componentDidMount() {
 
     let { player1, player2 } = this.props
 
-    axios.get(`/api/prostats?name=${player2}`).then(res => {
+    axios.get(`https://api.overwatchleague.com/players/${player2}?locale=en-us&season=2019&stage_id=regular_season&expand=stats,stat.ranks`).then(res => {
       this.setState({
-        player2: res.data[0]
+        player2: res.data.data.player,
+        player2Stats: res.data.data.stats.all
       })
     }).catch(err => {
       console.log(`Error: ${err}`)
@@ -33,7 +35,7 @@ class Compare extends Component {
 
   render() {
 
-    let { player1, player2 } = this.state
+    let { player1, player2, player2Stats } = this.state
 
     return (
       <div className='CompareWindow'>
@@ -65,7 +67,7 @@ class Compare extends Component {
               </tbody>
             </table>
           </div>
-          <ShowCompare player1={player1} player2={player2} />
+          <ShowCompare player1={player1} player2={this.state.player2Stats} />
           <div className="Player2">
             <table className='Player2Table'>
               <tbody>
@@ -74,19 +76,19 @@ class Compare extends Component {
                   <td className='CompareTableHead'>Name</td>
                 </tr>
                 <tr>
-                  <td>{Number(player2.eliminations_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
+                  <td>{Number(player2Stats.eliminations_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
                   <td className='CompareTableHead'>Eliminations per 10m</td>
                 </tr>
                 <tr>
-                  <td>{Number(player2.hero_damage_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
+                  <td>{Number(player2Stats.hero_damage_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
                   <td className='CompareTableHead'>Hero Damage per 10m</td>
                 </tr>
                 <tr>
-                  <td>{Number(player2.healing_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
+                  <td>{Number(player2Stats.healing_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
                   <td className='CompareTableHead'>Healing per 10m</td>
                 </tr>
                 <tr>
-                  <td>{Number(player2.deaths_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
+                  <td>{Number(player2Stats.deaths_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
                   <td className='CompareTableHead'>Deaths per 10m</td>
                 </tr>
               </tbody>

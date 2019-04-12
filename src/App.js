@@ -117,7 +117,8 @@ class App extends Component {
         <Header handleChange={this.handleChange}
         handleCompare={this.handleCompare}
         individualStats={this.state.individualStats}
-        proStats={this.state.proStats}/>
+        proStats={this.state.proStats}
+        player2={this.state.player2}/>
 
 
         <div className='MainHold'>
