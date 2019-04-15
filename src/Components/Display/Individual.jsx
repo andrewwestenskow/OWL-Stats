@@ -8,11 +8,13 @@ import Masters from './RankIcons/Master.png'
 import GM from './RankIcons/GM.png'
 
 
+
 class Individual extends Component {
 
   state = {
     makeSure: false,
     edit: false,
+    update: false,
     name: this.props.stats.name,
     eliminations_avg_per_10m: this.props.stats.eliminations_avg_per_10m,
     hero_damage_avg_per_10m: this.props.stats.hero_damage_avg_per_10m,
@@ -53,6 +55,12 @@ class Individual extends Component {
       edit: false
     })
   }
+
+  
+    
+  
+
+
 
   render(){
 
@@ -143,7 +151,10 @@ class Individual extends Component {
         className='RedButton' 
         onClick={this.editing}>{this.state.edit ? `Cancel` : `Edit`}</button></td>
 
-        {this.state.edit ? <td className='ButtonHold'><button className='SmallGreenButton'onClick={this.handleUpdate}>Submit</button></td>  : null}
+        {this.state.edit ? <td className='ButtonHold'><button className='SmallGreenButton'onClick={this.handleUpdate}>Submit</button></td>  
+        : null}
+        
+    
 
 
         <td className='ButtonHold'><button className='RedButton' onClick={this.makeSure}>Delete</button></td>

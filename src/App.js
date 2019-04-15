@@ -102,6 +102,8 @@ class App extends Component {
     })
   }
 
+  
+
 
   render() {
 
@@ -138,6 +140,7 @@ class App extends Component {
           individualStats={this.state.individualStats}
           handleUpdate={this.handleUpdate}
           proStats={this.state.proStats}/>}
+
         </div>
       </div>
     );

@@ -1,9 +1,29 @@
 import React, {Component} from 'react'
 import ProStats from './ProStats'
 import IndividualStats from './IndividualStats'
+import PlayerDetails from './../PlayerDetails/PlayerDetails'
 
 
 class DisplayStats extends Component {
+
+  state = {
+    showPlayer: false,
+    playerId: ''
+  }
+
+  showDetailed = (player) => {
+    this.setState({
+      playerId: player,
+      showPlayer: true
+    })
+  }
+
+  showFalse = () => {
+    this.setState({
+      showPlayer: false
+    })
+  }
+
 
 
   render(){
@@ -14,8 +34,8 @@ class DisplayStats extends Component {
         stats={this.props.individualStats}
         handleUpdate={this.props.handleUpdate}/>
 
-        
-        <ProStats stats={this.props.proStats}/>
+        {this.state.showPlayer ? <PlayerDetails showFalse={this.showFalse} playerToShow={this.state.playerId}/> :  <ProStats showDetailed={this.showDetailed} stats={this.props.proStats}/> }
+
       </div>
     )
   }

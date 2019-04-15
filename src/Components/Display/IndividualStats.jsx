@@ -42,6 +42,8 @@ class IndividualStats extends Component {
     this.props.handleUpdate(player)
   }
 
+  
+
   render() {
 
     //Fetches all players on record
@@ -70,7 +72,8 @@ class IndividualStats extends Component {
         id={player.id}
         stats={player}
         key={player.name}
-        handleUpdate={this.handleUpdate} />
+        handleUpdate={this.handleUpdate}
+        auotUpate={this.autoUpdate} />
     })
 
     return (
