@@ -146,7 +146,7 @@ class Individual extends Component {
         : (deaths_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}
         </td>
 
-        <td className='StatsCell-Deaths'><div className='ButtonHold'>
+        <td className='StatsCell-Button'><div className='ButtonHold'>
         
         <button
         style={{marginLeft: 5}}
