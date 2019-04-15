@@ -60,6 +60,12 @@ class ShowCompare extends Component {
             <tr>
               <td className={deathText}>{this.calcChange(Number(player1.deaths_avg_per_10m), Number(player2.deaths_avg_per_10m))}</td>
             </tr>
+            <tr>
+              {/* Back button */}
+        <div className="BackButton">
+          <button style={{marginTop: 25, marginLeft: 15}} className='GreenButton' onClick={() => this.props.showCompare()}>Go Back</button>
+        </div>
+            </tr>
           </tbody>
         </table>
       </div>

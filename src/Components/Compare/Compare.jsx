@@ -41,7 +41,9 @@ class Compare extends Component {
 
     return (
       <div className='CompareWindow'>
+      
         <h1 className='CompareHeader'>HOW DO YOU STACK UP?</h1>
+        
 
         {/* Player 1 stats */}
         <div className="CompareStats">
@@ -74,7 +76,7 @@ class Compare extends Component {
 
           {/* Shows stat comparison */}
           <ShowCompare player1={player1} 
-          player2={this.state.player2Stats} />
+          player2={this.state.player2Stats} showCompare={this.props.showCompare} />
 
           {/* Shows Player 2 stats */}
           <div className="Player2">
@@ -103,12 +105,10 @@ class Compare extends Component {
               </tbody>
             </table>
           </div>
+          
         </div>
 
-        {/* Back button */}
-        <div className="BackButton">
-          <button style={{marginTop: 25, marginLeft: 15}} className='GreenButton' onClick={() => this.props.showCompare()}>Go Back</button>
-        </div>
+        
       </div>
     )
   }

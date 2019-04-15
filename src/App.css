@@ -130,6 +130,12 @@ select{
   cursor: pointer;
 }
 
+.BackButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* COMPARE */
 
 .CompareWindow{
@@ -151,7 +157,7 @@ select{
 
 .CompareStats{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 80%;
 }
 
@@ -191,7 +197,7 @@ table{
 
 td{
   padding: 5px;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 /* PLAYER STATS */
@@ -210,7 +216,7 @@ td{
 /* PRO TABLE */
 
 .ProTable{
-  width: 1116px;
+  width: 1122px;
 }
 
 
@@ -277,11 +283,13 @@ td{
 
 .StatsCell-Deaths{
   border-top: 1px solid black;
+  border-right: none;
   background-color: beige
 }
 
 .StatsCell-Button{
   border-top: 1px solid black;
+  border-left: none;
   background-color: beige;
   text-align: right;
 }
