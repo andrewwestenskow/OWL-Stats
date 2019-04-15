@@ -33,11 +33,11 @@ class Header extends Component {
 
           <div className='CompareSelects'>
 
-            <select onChange={this.handleChange} name="player1" id="" className='Compare'>
+            <select onChange={this.handleChange} name="player1" id="" className='PlayerSelect'>
               {playerNames}
             </select>
 
-            <select onChange={this.handleChange} name="player2" id="" className='Compare'>
+            <select onChange={this.handleChange} name="player2" id="" className='PlayerSelect'>
               {proNames}
             </select>
 

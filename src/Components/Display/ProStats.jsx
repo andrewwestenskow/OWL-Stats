@@ -10,6 +10,8 @@ class ProStats extends Component {
     let showStats = this.props.stats.map(player => {
       return <tr key={player.playerId}>
         <td id={player.playerId} style={{cursor: 'pointer'}} className='StatsCell' onClick={e => this.props.showDetailed(e.target.id)}>{player.name}</td>
+        <td className='StatsCell'>{player.role}</td>
+        <td className='StatsCell'>{player.team}</td>
         <td className='StatsCell'>{(player.eliminations_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
         <td className='StatsCell'>{(player.hero_damage_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
         <td className='StatsCell'>{(player.healing_avg_per_10m).toLocaleString('en-US', { maximumFractionDigits: 2 })}</td>
@@ -22,10 +24,12 @@ class ProStats extends Component {
       <div>
         <h1 className='Heading'>Pro Stats</h1>
         <div className="Stats">
-          <table>
+          <table className='ProTable'>
             <thead>
               <tr>
-                <td className='HeaderCell'>Name</td>
+                <td className='HeaderCell-Name'>Name</td>
+                <td className='RankCell'>Role</td>
+                <td className='RankCell'>Team</td>
                 <td className='HeaderCell'>Eliminations per 10m</td>
                 <td className='HeaderCell'>Hero Damage per 10m</td>
                 <td className='HeaderCell'>Healing per 10m</td>

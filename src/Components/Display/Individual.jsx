@@ -137,7 +137,7 @@ class Individual extends Component {
         className='StatInput'/> 
         : (healing_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}</td>
 
-        <td className='StatsCell'>{this.state.edit ? 
+        <td className='StatsCell-Deaths'>{this.state.edit ? 
         <input type="number" 
         defaultValue={deaths_avg_per_10m}
         name='deaths_avg_per_10m'
@@ -146,18 +146,21 @@ class Individual extends Component {
         : (deaths_avg_per_10m).toLocaleString('en-US', {maximumFractionDigits: 2})}
         </td>
 
-        <td className='ButtonHold'><button 
-        style={{marginLeft: 5}} 
-        className='RedButton' 
-        onClick={this.editing}>{this.state.edit ? `Cancel` : `Edit`}</button></td>
-
-        {this.state.edit ? <td className='ButtonHold'><button className='SmallGreenButton'onClick={this.handleUpdate}>Submit</button></td>  
+        <td className='StatsCell-Deaths'><div className='ButtonHold'>
+        
+        <button
+        style={{marginLeft: 5}}
+        className='RedButton'
+        onClick={this.editing}>{this.state.edit ? `Cancel` : `Edit`}</button>
+        
+        {this.state.edit ? <div><button className='SmallGreenButton'onClick={this.handleUpdate}>Submit</button></div>
         : null}
         
-    
-
-
-        <td className='ButtonHold'><button className='RedButton' onClick={this.makeSure}>Delete</button></td>
+        
+        
+        
+        <button className='RedButton' onClick={this.makeSure}>Delete</button></div></td>
+        
       </tr>
       
       {this.state.makeSure ? <tr className="MakeSure">

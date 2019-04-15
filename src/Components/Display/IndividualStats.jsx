@@ -92,7 +92,7 @@ class IndividualStats extends Component {
         {this.state.addNew ? <AddNew addNew={this.addNew} /> : null}
 
         <div className="Stats">
-          <table>
+          <table className='IndividualTable'>
             <thead>
               <tr>
                 <td className='HeaderCell'>Name</td>
@@ -100,7 +100,8 @@ class IndividualStats extends Component {
                 <td className='HeaderCell'>Eliminations per 10m</td>
                 <td className='HeaderCell'>Hero Damage per 10m</td>
                 <td className='HeaderCell'>Healing per 10m</td>
-                <td className='HeaderCell'>Deaths per 10m</td>
+                <td className='HeaderCell-Deaths'>Deaths per 10m</td>
+                <td className='HeaderCell-213'></td>
               </tr>
             </thead>
             {showStats}
