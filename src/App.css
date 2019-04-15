@@ -294,6 +294,7 @@ td{
   border-left: none;
   border-right: none;
   box-shadow: none;
+  background-color: transparent;
 }
 
 .RankInput{
@@ -304,6 +305,7 @@ td{
   border-left: none;
   border-right: none;
   box-shadow: none;
+  background-color: transparent;
 }
 
 .ButtonHold{
@@ -343,14 +345,13 @@ td{
 .NewStatInput{
   width: inherit;
   max-width: 132px;
-  border-bottom: 1px solid blue;
   border-top: none;
   border-left: none;
   border-right: none;
   box-shadow: none;
   margin-right: 10px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0.2em;
   font-size: 18px;
 }
 

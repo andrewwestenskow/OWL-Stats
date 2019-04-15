@@ -147,17 +147,14 @@ class Individual extends Component {
         </td>
 
         <td className='StatsCell-Button'><div className='ButtonHold'>
+
+        {this.state.edit ? <div><button className='SmallGreenButton'onClick={this.handleUpdate}>Submit</button></div>
+        : null}
         
         <button
         style={{marginLeft: 5}}
         className='RedButton'
         onClick={this.editing}>{this.state.edit ? `Cancel` : `Edit`}</button>
-        
-        {this.state.edit ? <div><button className='SmallGreenButton'onClick={this.handleUpdate}>Submit</button></div>
-        : null}
-        
-        
-        
         
         <button className='RedButton' onClick={this.makeSure}>Delete</button></div></td>
         
