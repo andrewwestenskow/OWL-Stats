@@ -5,7 +5,8 @@ import axios from 'axios'
 class HeroStats extends Component {
 
   state = {
-    heroStats: []
+    heroStats: [],
+    color: ''
   }
 
   componentDidMount() {
@@ -17,6 +18,17 @@ class HeroStats extends Component {
         heroStats: showPlayer.stats.heroes,
       })
     })
+
+    axios.get(`https://api.overwatchleague.com/players/${this.props.playerToShow}?locale=en-us&season=${this.props.season}&stage_id=regular_season&expand=stats,stat.ranks`).then(res => {
+      let teamInfo = res.data.data.player.teams[0].team
+      console.log(teamInfo.secondaryColor)
+      this.setState({
+        color: teamInfo.secondaryColor
+      })
+    })
+
+
+  
   }
 
   componentDidUpdate(prevProps) {
@@ -28,6 +40,13 @@ class HeroStats extends Component {
       
       this.setState({
         heroStats: showPlayer.stats.heroes,
+      })
+    })
+
+    axios.get(`https://api.overwatchleague.com/players/${this.props.playerToShow}?locale=en-us&season=${this.props.season}&stage_id=regular_season&expand=stats,stat.ranks`).then(res => {
+      let teamInfo = res.data.data.player.teams[0].team
+      this.setState({
+        color: teamInfo.secondaryColor
       })
     })
     }
@@ -44,6 +63,12 @@ class HeroStats extends Component {
       return <div key={hero.name} value={hero.name} 
       className='HeroStats' 
       onClick={e => this.showDetails(hero.name)}>
+      <div 
+      className='time-played-percentage'
+      style={{width: `${(hero.stats.time_played_total / this.props.totalTime) * 100}%`, background: `#${this.state.color}`}}
+      >
+
+      </div>
       <h2>{hero.name}</h2> 
       <h3>{`${((hero.stats.time_played_total)/60/60).toLocaleString()} hours`}</h3>
       </div>

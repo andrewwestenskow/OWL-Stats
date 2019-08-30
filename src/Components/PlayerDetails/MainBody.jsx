@@ -52,7 +52,7 @@ class MainBody extends Component {
             <h2>{this.props.attributes.role}</h2>
           </div>
         </div>
-        <HeroStats playerToShow={this.props.playerToShow} season={this.props.season}/>
+        <HeroStats teamInfo={this.props.team} totalTime={this.props.stats.time_played_total} playerToShow={this.props.playerToShow} season={this.props.season}/>
       </div>
     )
   }

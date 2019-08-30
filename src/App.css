@@ -2,7 +2,7 @@
 
 body{
   overflow-x: hidden;
-  background-image: url('http://www.sharebyme.com/wp-content/uploads/2016/08/pattern_background1.png');
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/morocco-blue.png');
 }
 
 /* SCROLLBAR  */
@@ -476,4 +476,17 @@ td{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.HeroStats > h2, h3{
+  position: relative;
+  z-index: 5;
+}
+
+.time-played-percentage{
+  position: absolute;
+  left: 0;
+  height: 100%;
+  background: blue
 }
